@@ -1,2 +1,2 @@
 name.json merge=ours
-files/** binary
+files/** merge=ours
