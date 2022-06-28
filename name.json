@@ -1,3 +1,5 @@
 {
-    "env":"dev"
+    "databse":"hipvap-v2",
+    "tablename":"hipvap-dtata-table",
+    
 }
