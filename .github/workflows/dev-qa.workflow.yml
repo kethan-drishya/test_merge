@@ -16,9 +16,13 @@ jobs:
         run: |
           git config --global user.email "kethan.sarma@drishya.ai"
           git config --global include.path ../.gitconfig
+          git config --global pull.ff only
+          git clone "https://$GITHUB_ACTOR:${{ secrets.REPO_TOKEN }}@github.com/kethan-drishya/test_merge.git"
+          cd test_merge
+          git fetch
           git checkout qa
+          git pull
           git merge dev-qa
-          git add . && git commit -m "mlflow experiment added"
           git push
 
   
