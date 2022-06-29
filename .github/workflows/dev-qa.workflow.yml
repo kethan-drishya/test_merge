@@ -9,15 +9,19 @@ jobs:
     runs-on: [ubuntu-latest]
     container: docker://dvcorg/cml-py3:latest
     steps:
+      - uses: actions/checkout@v2
       - name: Commit report
         env:
           repo_token: ${{ secrets.REPO_TOKEN }}
         run: |
           git config --global user.email "kethan.sarma@drishya.ai"
-          git config --local include.path ../.gitconfig
+          git clone "https://$GITHUB_ACTOR:${{ secrets.REPO_TOKEN }}@github.com/kethan-drishya/test_merge.git"
+          cd test_merge
+          git config --global include.path ../.gitconfig
+          git fetch
           git checkout qa
+          git pull
           git merge dev-qa
-          git add . && git commit -m "mlflow experiment added"
           git push
 
   
