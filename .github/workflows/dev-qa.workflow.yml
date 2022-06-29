@@ -19,7 +19,7 @@ jobs:
           cd test_merge
           git remote add upstream https://github.com/kethan-drishya/test_merge.git
           git config --local merge.ours.driver true
-          git checkout qa
+          git checkout dev-qa2
           git fetch --all          
           git merge upstream/dev-qa
           git push
