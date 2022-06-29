@@ -17,11 +17,10 @@ jobs:
           git config --global user.email "kethan.sarma@drishya.ai"
           git clone "https://$GITHUB_ACTOR:${{ secrets.REPO_TOKEN }}@github.com/kethan-drishya/test_merge.git"
           cd test_merge
-          git config --global include.path ../.gitconfig
-          git fetch
+          git remote add upstream https://github.com/kethan-drishya/test_merge.git
           git checkout qa
-          git pull
-          git merge dev-qa
+          git fetch --all          
+          git merge upstream/dev-qa
           git push
 
   
