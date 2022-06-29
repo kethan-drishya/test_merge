@@ -1,0 +1,22 @@
+# @format
+
+name: Deploy on qa Env 🚀
+on:
+  push:
+    branches: ["qa"]
+jobs:
+  run:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - name: Commit report
+        env:
+          repo_token: ${{ secrets.REPO_TOKEN }}
+        run: |
+          git config --global user.email "kethan.sarma@drishya.ai"
+          git config --local include.path ../.gitconfig
+          git merge dev
+          git add . && git commit -m "mlflow experiment added"
+          git push
+
+  
