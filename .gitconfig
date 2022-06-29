@@ -16,3 +16,7 @@
 [branch "dev-qa"]
 	remote = origin
 	merge = refs/heads/dev-qa
+
+[branch "qa"]
+	remote = origin
+	merge = refs/heads/qa
