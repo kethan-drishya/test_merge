@@ -14,7 +14,7 @@ jobs:
           repo_token: ${{ secrets.REPO_TOKEN }}
         run: |
           git config --global user.email "kethan.sarma@drishya.ai"
-          git config --local include.path ../.gitconfig
+          git config --global include.path ../.gitconfig
           git checkout qa
           git merge dev-qa
           git add . && git commit -m "mlflow experiment added"
