@@ -1,6 +1,7 @@
 {
     "databse":"hipvap-v2",
     "tablename":"hipvap-dtata-table",
-    "name":"hipvap-data"
+    "name":"hipvap-data",
+    "name2":"hipvap-data2"
     
 }
