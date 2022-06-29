@@ -18,6 +18,7 @@ jobs:
           git clone "https://$GITHUB_ACTOR:${{ secrets.REPO_TOKEN }}@github.com/kethan-drishya/test_merge.git"
           cd test_merge
           git remote add upstream https://github.com/kethan-drishya/test_merge.git
+          git config --local merge.ours.driver true
           git checkout qa
           git fetch --all          
           git merge upstream/dev-qa
