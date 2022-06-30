@@ -24,12 +24,11 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: $repo_token
-        run: |
-          git config --global user.email "kethan.sarma@drishya.ai"
-          git config --global user.name "Kethan Sarma"          
+        run: |          
           git clone "https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git"
           cd $repo_name
-          git remote set-url origin git@github.com/kethan-drishya/$repo_name.git
+          git config --local user.email "kethan.sarma@drishya.ai"
+          git config --local user.name "Kethan Sarma"
           git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
           git fetch --all
