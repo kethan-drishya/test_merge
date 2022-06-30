@@ -40,7 +40,7 @@ jobs:
         with:
           script: |
             const { repo, owner } = context.repo;
-            const pull_requests = await rest.pulls.list({
+            const pull_requests = await github.rest.pulls.list({
                 owner,
                 repo
                 base: dev-qa
