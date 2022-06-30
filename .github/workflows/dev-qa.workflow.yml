@@ -32,10 +32,10 @@ jobs:
           git config --local remote.origin.url  https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
           git fetch --all
-          git checkout --track origin/dev-qa2   
-          git checkout -b dev-qa3       
-          git merge origin/dev-qa
-          git push --set-upstream origin dev-qa3 
+          git checkout --track origin/dev-qa4   
+          git checkout -b dev-qa5       
+          git merge origin/dev-qa4
+          git push --set-upstream origin dev-qa5 
           
       # - name: create a PR       
       #   id: cpr
@@ -70,8 +70,9 @@ jobs:
               })["catch"](function (e) {
               console.log(e.message);
               });   
+            console.log(pull_requests)
             var pull_number = 0    
-            if("number" in pull_requests.data[0]){
+            if(pull_requests.data.length !=0){
               console.log("in if")
               pull_number = pull_requests.data[0].number 
               console.log(pull_number)
@@ -112,6 +113,8 @@ jobs:
             console.log(result_merge)
       - name: Cleanup
         run: |
+          git branch -d dev-qa3
+          git push origin --delete dev-qa3
           cd ..
           sudo rm -r -f $repo_name
       # - name: Dependabot metadata
