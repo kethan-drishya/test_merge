@@ -32,7 +32,7 @@ jobs:
           git remote add upstream https://github.com/kethan-drishya/$repo_name.git
           git init
           git config --local merge.ours.driver true
-    - name: create a PR
+      - name: create a PR
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: $repo_token
