@@ -36,9 +36,9 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: $repo_token
-          run: |
-            gh pr create --title "The bug is fixed" --body "Everything works again"
-            gh pr create --base dev-qa2 --head dev-qa "$PR_URL"
+        run: |
+          gh pr create --title "The bug is fixed" --body "Everything works again"
+          gh pr create --base dev-qa2 --head dev-qa "$PR_URL"
         
 # jobs:
 #   run:
