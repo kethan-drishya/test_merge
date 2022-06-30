@@ -112,6 +112,8 @@ jobs:
             console.log(result_merge)
       - name: Cleanup
         run: |
+          git branch -d dev-qa3
+          git push origin --delete dev-qa3
           cd ..
           sudo rm -r -f $repo_name
       # - name: Dependabot metadata
