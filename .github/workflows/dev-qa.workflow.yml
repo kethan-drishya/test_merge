@@ -29,6 +29,7 @@ jobs:
           git config --global user.name "Kethan Sarma"          
           git clone "https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git"
           cd $repo_name
+          git remote rm origin
           git remote add origin https://github.com/kethan-drishya/$repo_name.git
           git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
