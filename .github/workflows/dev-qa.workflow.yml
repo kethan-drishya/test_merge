@@ -20,7 +20,7 @@ jobs:
     # runs-on: ubuntu-latest
     # if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      - name: create a PR
+      - name: create repo
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: $repo_token
@@ -32,8 +32,13 @@ jobs:
           git remote add upstream https://github.com/kethan-drishya/$repo_name.git
           git init
           git config --local merge.ours.driver true
-          gh pr create --title "The bug is fixed" --body "Everything works again"
-          gh pr create --base dev-qa2 --head dev-qa "$PR_URL"
+    - name: create a PR
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: $repo_token
+          run: |
+            gh pr create --title "The bug is fixed" --body "Everything works again"
+            gh pr create --base dev-qa2 --head dev-qa "$PR_URL"
         
 # jobs:
 #   run:
