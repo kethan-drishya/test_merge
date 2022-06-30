@@ -56,11 +56,11 @@ jobs:
                 issue_number: result.data.number,
                 labels: ['feature', 'automated pr']
               });
-      - name: Dependabot metadata
-        id: dependabot-metadata
-        uses: dependabot/fetch-metadata@v1.1.1
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      # - name: Dependabot metadata
+      #   id: dependabot-metadata
+      #   uses: dependabot/fetch-metadata@v1.1.1
+      #   with:
+      #     github-token: "${{ secrets.GITHUB_TOKEN }}"
         # # Here the PR gets approved.
         # - name: Approve a PR
         #   run: gh pr review --approve "$PR_URL"
