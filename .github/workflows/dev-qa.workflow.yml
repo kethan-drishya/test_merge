@@ -20,19 +20,23 @@ jobs:
     # runs-on: ubuntu-latest
     # if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-      # - name: create repo
-      #   env:
-      #     PR_URL: ${{github.event.pull_request.html_url}}
-      #     GITHUB_TOKEN: $repo_token
-      #   run: |
-      #     git config --global user.email "kethan.sarma@drishya.ai"
-      #     git config --global user.name "Kethan Sarma"          
-      #     git clone "https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git"
-      #     cd $repo_name
-      #     git remote add upstream https://github.com/kethan-drishya/$repo_name.git
-      #     git init
-      #     git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
-      #     git config --local merge.ours.driver true
+      - name: create repo
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: $repo_token
+        run: |
+          git config --global user.email "kethan.sarma@drishya.ai"
+          git config --global user.name "Kethan Sarma"          
+          git clone "https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git"
+          cd $repo_name
+          git remote add upstream https://github.com/kethan-drishya/$repo_name.git
+          git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
+          git config --local merge.ours.driver true
+          git checkout -b dev-qa3 dev-qa2
+          git fetch --all          
+          git merge upstream/dev-qa
+          git push --set-upstream origin dev-qa3 
+          
       # - name: create a PR       
       #   id: cpr
       #   uses: actions/github-script@v6
@@ -60,8 +64,8 @@ jobs:
             const pull_requests = await github.rest.pulls.list({
               owner,
               repo,
-              base: "dev-qa",
-              head: "dev-qa2",
+              base: "dev-qa2",
+              head: "dev-qa3",
               state: "open",
               })["catch"](function (e) {
               console.log(e.message);
@@ -80,6 +84,7 @@ jobs:
               });
             }
             else{
+              console.log("in else")
               const result = await github.rest.pulls.create({
               title: '[Example] Simple demo',
               owner,
@@ -105,8 +110,10 @@ jobs:
               pull_number: pull_number
             });
             console.log(result_merge)
-
-
+      - name: Cleanup
+        run: |
+          cd ..
+          sudo rm -r -f $repo_name
       # - name: Dependabot metadata
       #   id: dependabot-metadata
       #   uses: dependabot/fetch-metadata@v1.1.1
