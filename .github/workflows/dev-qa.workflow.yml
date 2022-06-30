@@ -67,10 +67,13 @@ jobs:
               console.log(e.message);
               });       
             if("number" in pull_requests.data[0]){
+              console.log("in if")
               const pull_number = pull_requests.data[0].number 
               const result = await github.rest.pulls.update({
               owner,
               repo,
+              title: 'new title',
+              body: 'updated body',
               pull_number: pull_number
               });
             }
