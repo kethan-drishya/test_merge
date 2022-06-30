@@ -25,6 +25,13 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: $repo_token
         run: |
+          git config --global user.email "kethan.sarma@drishya.ai"
+          git config --global user.name "Kethan Sarma"
+          git clone "https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git"
+          cd $repo_name
+          git remote add upstream https://github.com/kethan-drishya/$repo_name.git
+          git init
+          git config --local merge.ours.driver true
           gh pr create --title "The bug is fixed" --body "Everything works again"
           gh pr create --base dev-qa2 --head dev-qa "$PR_URL"
         
