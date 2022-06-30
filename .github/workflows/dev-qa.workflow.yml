@@ -99,7 +99,7 @@ jobs:
                 });
               pull_number = result.data.number ;
             };
-            const result_merge = await github.rest.pulls.merges({
+            const result_merge = github.rest.pulls.merges({
               owner,
               repo,
               pull_number: pull_number
