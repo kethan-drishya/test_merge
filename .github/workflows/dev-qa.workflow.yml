@@ -32,10 +32,10 @@ jobs:
           git config --local remote.origin.url  https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
           git fetch --all
-          git checkout --track origin/dev-qa2   
-          git checkout -b dev-qa3       
-          git merge origin/dev-qa
-          git push --set-upstream origin dev-qa3 
+          git checkout --track origin/dev-qa3   
+          git checkout -b dev-qa4       
+          git merge origin/dev-qa3
+          git push --set-upstream origin dev-qa4 
           
       # - name: create a PR       
       #   id: cpr
