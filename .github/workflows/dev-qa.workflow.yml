@@ -35,7 +35,7 @@ jobs:
           git config --local merge.ours.driver true
     
       - name: create a PR       
-          id: cpr
+        id: cpr
         uses: actions/github-script@v6
         with:
           script: |
