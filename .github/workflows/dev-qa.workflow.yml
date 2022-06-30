@@ -70,6 +70,7 @@ jobs:
               })["catch"](function (e) {
               console.log(e.message);
               });   
+            console.log(pull_requests)
             var pull_number = 0    
             if("number" in pull_requests.data[0]){
               console.log("in if")
