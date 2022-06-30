@@ -29,13 +29,13 @@ jobs:
           git config --global user.name "Kethan Sarma"          
           git clone "https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git"
           cd $repo_name
-          git remote add upstream https://github.com/kethan-drishya/$repo_name.git
+          git remote add origin https://github.com/kethan-drishya/$repo_name.git
           git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
           git fetch --all
           git checkout dev-qa2   
           git checkout -b dev-qa3        
-          git merge upstream/dev-qa
+          git merge origin/dev-qa
           git push --set-upstream origin dev-qa3 
           
       # - name: create a PR       
