@@ -48,7 +48,7 @@ jobs:
               })["catch"](function (e) {
               console.log(e.message);
               });
-            var pull_number = pull_requests[0].number;
+            var pull_number = pull_requests[0];
             console.log(pull_number)
     
       # - name: create a PR       
