@@ -69,6 +69,7 @@ jobs:
             if("number" in pull_requests.data[0]){
               console.log("in if")
               const pull_number = pull_requests.data[0].number 
+              console.log(pull_number)
               const result = await github.rest.pulls.update({
               owner,
               repo,
