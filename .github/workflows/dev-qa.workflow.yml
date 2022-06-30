@@ -36,7 +36,7 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: $repo_token
-          GH_TOKEN: $repo_token
+          GH_PAT: $repo_token
         run: |
           cd $repo_name
           gh pr create --title "The bug is fixed" --body "Everything works again"
