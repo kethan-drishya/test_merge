@@ -29,7 +29,7 @@ jobs:
           cd $repo_name
           git config --local user.email "kethan.sarma@drishya.ai"
           git config --local user.name "Kethan Sarma"
-          git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
+          git config --local remote.origin.url  https://$GITHUB_ACTOR:$repo_token@github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
           git fetch --all
           git checkout --track origin/dev-qa2   
