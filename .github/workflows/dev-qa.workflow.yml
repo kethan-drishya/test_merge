@@ -32,8 +32,9 @@ jobs:
           git remote add upstream https://github.com/kethan-drishya/$repo_name.git
           git config --local remote.origin.url  https://github.com/kethan-drishya/$repo_name.git
           git config --local merge.ours.driver true          
-          git fetch --all  
-          git checkout -b dev-qa3 dev-qa2        
+          git fetch --all
+          git checkout dev-qa2   
+          git checkout -b dev-qa3        
           git merge upstream/dev-qa
           git push --set-upstream origin dev-qa3 
           
