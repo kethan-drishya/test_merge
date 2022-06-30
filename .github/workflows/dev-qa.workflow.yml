@@ -42,9 +42,9 @@ jobs:
             const pull_requests = await github.rest.pulls.list({
               owner,
               repo,
-              base: dev-qa,
-              head: dev-qa2,
-              state: open,
+              base: "dev-qa",
+              head: "dev-qa2",
+              state: "open",
               })["catch"](function (e) {
               console.log(e.message);
               });
