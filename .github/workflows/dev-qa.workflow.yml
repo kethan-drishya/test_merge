@@ -41,15 +41,15 @@ jobs:
             const { repo, owner } = context.repo;
             const pull_requests = await github.rest.pulls.list({
               owner,
-              repo
-              base: dev-qa
-              head: dev-qa2
-              state: open
+              repo,
+              base: dev-qa,
+              head: dev-qa2,
+              state: open,
               })["catch"](function (e) {
               console.log(e.message);
               });
-           # var pull_number = pull_requests.data.number;
-            # console.log(pull_number)
+            var pull_number = pull_requests.data.number;
+            console.log(pull_number)
     
       # - name: create a PR       
       #   id: cpr
