@@ -26,6 +26,7 @@ jobs:
           git merge upstream/dev-qa
           git push
       - name: Cleanup
+        run: |
           cd ..
           sudo rm -r -f $repo_name
 
