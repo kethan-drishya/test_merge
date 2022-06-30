@@ -10,14 +10,16 @@ permissions:
       pull-requests: write
     
 jobs:
-  env:
+  run:
+    runs-on: [ubuntu-latest]
+    # container: docker://dvcorg/cml-py3:latest
+    env:
           repo_token: ${{ secrets.REPO_TOKEN }}
           repo_name: ${{ github.event.repository.name }}
   dependabot:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
-
       - name: create a PR
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
