@@ -16,8 +16,8 @@ jobs:
     env:
           repo_token: ${{ secrets.REPO_TOKEN }}
           repo_name: ${{ github.event.repository.name }}
-  dependabot:
-    runs-on: ubuntu-latest
+  # dependabot:
+    # runs-on: ubuntu-latest
     # if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - name: create a PR
