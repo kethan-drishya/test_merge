@@ -37,15 +37,15 @@ jobs:
     #   uses: dependabot/fetch-metadata@v1.1.1
     #   with:
     #     github-token: "${{ secrets.GITHUB_TOKEN }}"
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3.10.1
-      with:
-        token: ${{ secrets.REPO_TOKEN }}
-        commit-message: Auto Pull Request
-        title: Your desired title
-        body: Auto-created Pull Request
-        branch: ${{ github.ref }} # The branch where you commit
-        base: dev-qa2 # Don't forget to specify the right base branch here  
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.10.1
+        with:
+          token: ${{ secrets.REPO_TOKEN }}
+          commit-message: Auto Pull Request
+          title: Your desired title
+          body: Auto-created Pull Request
+          branch: ${{ github.ref }} # The branch where you commit
+          base: dev-qa2 # Don't forget to specify the right base branch here  
     # - name: create a PR       
     #   uses: actions/github-script@v6
     #   with:
