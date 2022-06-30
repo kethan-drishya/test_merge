@@ -33,10 +33,13 @@ jobs:
           git init
           git config --local merge.ours.driver true
       - name: create a PR
+        uses: actions/checkout@v2
+        with:
+          token: ${{secrets.REPO_TOKEN}}
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
-          GITHUB_TOKEN: $repo_token
-          GH_PAT: $repo_token
+          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+          GH_PAT: ${{ secrets.REPO_TOKEN }}
         run: |
           cd $repo_name
           gh pr create --title "The bug is fixed" --body "Everything works again"
