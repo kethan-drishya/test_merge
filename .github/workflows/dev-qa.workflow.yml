@@ -114,7 +114,7 @@ jobs:
             const delete_branch = await github.rest.git.deleteRef({
               owner,
               repo,
-              ref: dev-qa8
+              ref: "dev-qa8"
             });
             console.log(delete_branch)
 
