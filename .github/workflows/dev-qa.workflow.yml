@@ -62,6 +62,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const { base_branch_name, head_branch_name } = process.env
             const { repo, owner } = context.repo;
             const pull_requests = await github.rest.pulls.list({
               owner,
