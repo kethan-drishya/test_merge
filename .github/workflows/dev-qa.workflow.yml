@@ -16,8 +16,8 @@ jobs:
     env:
           repo_token: ${{ secrets.REPO_TOKEN }}
           repo_name: ${{ github.event.repository.name }}
-          base_branch_name: dev-qa7
-          head_branch_name: dev-qa9
+          base_branch_name: dev-qa10
+          head_branch_name: dev-qa11
           source_branch_name: dev-qa
   # dependabot:
     # runs-on: ubuntu-latest
@@ -63,6 +63,7 @@ jobs:
         with:
           script: |
             const { base_branch_name, head_branch_name } = process.env
+            console.log(base_branch_name, head_branch_name)
             const { repo, owner } = context.repo;
             const pull_requests = await github.rest.pulls.list({
               owner,
