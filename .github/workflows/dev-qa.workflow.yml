@@ -67,7 +67,7 @@ jobs:
             const quoted_base_branch_name = `'${base_branch_name}'`
             const quoted_head_branch_name = `'${head_branch_name}'`
             const head_ref = "".concat('heads/', quoted_head_branch_name)
-            console.log(`${base_branch_name}`, head_branch_name)
+            console.log(`${base_branch_name}`, quoted_base_branch_name, head_branch_name)
             const { repo, owner } = context.repo;
             const pull_requests = await github.rest.pulls.list({
               owner,
